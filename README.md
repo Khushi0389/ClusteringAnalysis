@@ -18,7 +18,7 @@ This Java Swing application reads earthquake data from a CSV file, performs clus
 Lat_lon_plot_4.java # Main Java file with all functionality
 eq_1.csv # Input data file (not provided here)
 plot1.png # Screenshot of raw data plotting
-plot2.png # Screenshot of clustered data visualization
+plot2.png & plot3.png # Screenshot of clustered data visualization
 Result.txt # Output after clustering
 
 ## 🖼️ Screenshots
@@ -26,8 +26,9 @@ Result.txt # Output after clustering
 ### ➤ Plot 1: Raw Earthquake Data Points
 ![Plot 1](plot1.png)
 
-### ➤ Plot 2: Clustered Earthquake Data
+### ➤ Plot 2 & 3: Clustered Earthquake Data
 ![Plot 2](plot2.png)
+![Plot 3](plot3.png)
 
 ## 🚀 How to Run
 
