@@ -1,90 +1,93 @@
-# Clustering Analysis on Earthquake Data
+# 🌍 Earthquake Clustering Visualization Tool
 
+This Java Swing application reads earthquake data from a CSV file, performs clustering based on spatial coordinates (latitude and longitude), and visualizes the clusters on a 2D map.
 
-This project analyzes the performance of clustering algorithms on numerical data, specifically earthquake data spanning from 1970 to 2014. The project implements and compares multiple clustering algorithms using Java and visualizes the results using a graphical user interface (GUI).
+## 📌 Features
 
-## **Features**
-- Implementation of **K-Means**, **K-Medoids**, **DBSCAN**, and a custom algorithm.
-- Visualization of clustering results using **Java Swing**.
-- Handling of noise and outliers in earthquake data.
-- Sub-clustering for finer granularity of clusters.
+- 📥 **CSV Input**: Reads earthquake data from a file (`eq_1.csv`) containing fields like date, location, latitude, longitude, depth, and magnitude.
+- 📊 **Normalization**: Normalizes latitude, longitude, depth, and magnitude for consistent plotting on the GUI.
+- 🧠 **Custom Clustering Algorithm**: Implements a basic density-based clustering logic using core distance and ε-neighborhood.
+- 📍 **Cluster Visualization**: Displays individual data points and their cluster boundaries using random colors.
+- 💾 **Save Clustering Result**:
+  - Saves clusters to a `Result.txt` file.
+  - Exports cluster visualization as `.png` images.
+- 🎨 **Graphical User Interface**: Built using Java Swing for an interactive experience.
 
-## **Technologies Used**
-- **Programming Language**: Java
-- **Visualization**: Java Swing
-- **Development Environment**: Any Java-supported IDE (e.g., IntelliJ IDEA, Eclipse)
+## 🗂️ File Structure
 
-## **Dataset**
-The dataset contains earthquake records from 1970 to 2014 with the following attributes:
-- **Latitude**: Geospatial coordinate
-- **Longitude**: Geospatial coordinate
-- **Depth**: Depth of the earthquake in kilometers
-- **Magnitude**: Intensity of the earthquake
+Lat_lon_plot_4.java # Main Java file with all functionality
+eq_1.csv # Input data file (not provided here)
+plot1.png # Screenshot of raw data plotting
+plot2.png # Screenshot of clustered data visualization
+Result.txt # Output after clustering
 
-### Data Preprocessing
-- **Normalization**: Attributes like latitude, longitude, depth, and magnitude are normalized to fit within a uniform range.
-- **Feature Selection**: Relevant attributes are selected for clustering.
+## 🖼️ Screenshots
 
-## **Implemented Clustering Algorithms**
-### **1. K-Means**
-- A partition-based clustering algorithm that minimizes intra-cluster variance by iteratively updating cluster centroids.
+### ➤ Plot 1: Raw Earthquake Data Points
+![Plot 1](plot1.png)
 
-### **2. K-Medoids**
-- Similar to K-Means but uses actual data points (medoids) as cluster centers, making it more robust to outliers.
+### ➤ Plot 2: Clustered Earthquake Data
+![Plot 2](plot2.png)
 
-### **3. DBSCAN (Density-Based Spatial Clustering of Applications with Noise)**
-- A density-based algorithm that identifies clusters of arbitrary shapes and effectively handles noise.
+## 🚀 How to Run
 
-### **4. Custom Algorithm**
-- A custom density-based clustering algorithm tailored for earthquake data, offering flexibility in handling noise and outliers.
+### Prerequisites:
+- Java JDK (version 8 or above)
+- Your IDE or terminal setup for compiling and running Java
 
-## **How to Run the Project**
-### **1. Prerequisites**
-- Install **Java JDK 8** or higher.
-- Use any Java IDE (e.g., IntelliJ IDEA, Eclipse).
-- Download the dataset (`earthquakes1970-2014.txt` or `eq_1.csv`).
+### Steps:
 
-### **2. Steps**
-1. Clone this repository:
+1. **Clone or Download the Repository**:
    ```bash
    git clone https://github.com/Khushi0389/ClusteringAnalysis.git
-   ```
-2. Open the project in your Java IDE.
-3. Compile and run `DF12.java` or `Lat_lon_plot_4.java`.
-4. Use the GUI buttons to:
-   - **Read**: Load the dataset.
-   - **Plot**: Visualize raw data.
-   - **Cluster**: Perform clustering using selected algorithms.
-   - **Save**: Save visualization results as an image.
+   cd earthquake-clustering-java
+Place Your Dataset:
 
-## **Visualization Features**
-- **Cluster Representation**: Clusters are represented in distinct colors for easy interpretation.
-- **Sub-Clustering**: Provides detailed clustering in dense earthquake zones.
-- **Noise Handling**: Noise points are marked separately for clarity.
+Ensure the file eq_1.csv is present in the project root directory.
 
-## **Key Insights**
-- **DBSCAN** performed best for identifying irregular cluster shapes and handling noise.
-- **K-Means** and **K-Medoids** worked well for spherical and evenly distributed clusters but were sensitive to parameter tuning.
-- The custom algorithm effectively adapted to the earthquake dataset.
+CSV format should follow this order:
+Date, Latitude, Longitude, Depth, Magnitude, Place
+Compile and Run the Application:
+javac Lat_lon_plot_4.java
+java Lat_lon_plot_4
+GUI Buttons:
 
-## **Strengths and Limitations**
-### **Strengths**
-- Handles noise and outliers robustly.
-- Supports visualization for better interpretability.
-- Implements multiple clustering methods for comparison.
+Read: Load and normalize data from eq_1.csv.
 
-### **Limitations**
-- Sensitive to parameter selection (e.g., ε and MinPts for DBSCAN).
-- Scalability issues for very large datasets.
+Plot: Plot raw data points on the canvas.
 
-## **Future Work**
-- Optimize algorithms for larger datasets.
-- Automate parameter tuning for DBSCAN.
-- Extend the project to include real-time earthquake data streaming and clustering.
+Cluster: Perform clustering using ε and minPts parameters.
 
-## **Acknowledgments**
-- **Guide**: Dr. Sauravjyoti Sarmah, Assistant Professor, Jorhat Engineering College.
+Clusters: Visualize the clusters and save result to Result.txt.
 
-## **Contact**
-For any queries, please contact Khushi Gupta at [khushigupta10857@example.com].
+Save: Export the current visualization as a PNG image.
+
+Exit: Close the application.
+
+🧠 Clustering Logic
+The clustering is a custom DBSCAN-style algorithm:
+
+Each point's core distance is calculated based on ε-radius and minPts.
+
+A seed point with the smallest core distance starts a new cluster.
+
+Points within the core distance of the seed are recursively added to the cluster.
+
+🛠️ Customization
+You can modify the following parameters directly in the code:
+
+min_pts: Minimum number of points required to form a dense region.
+
+eps: Epsilon radius for neighbor consideration.
+
+eps_corr: For sub-clustering (currently unused).
+
+You can also load a different CSV file by changing the filename in read_file() method.
+
+📃 License
+This project is for educational and research purposes. Feel free to fork, use, and improve it!
+
+Author: Khushi Gupta
+GitHub:  https://github.com/Khushi0389
+
 
