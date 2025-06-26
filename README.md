@@ -88,7 +88,7 @@ You can also load a different CSV file by changing the filename in read_file() m
 📃 License
 This project is for educational and research purposes. Feel free to fork, use, and improve it!
 
-Author: Khushi Gupta
+✨ This project is maintained by Khushi Gupta
 GitHub:  https://github.com/Khushi0389
 
 
